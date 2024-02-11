@@ -12,7 +12,7 @@ Rol.hasMany(Usuario, {
   sourceKey: "id",
 });
 
-Usuario.belongsTo(Rol, { foreignKey: "IdRol", targetId: "id", as: "Roles" });
+Usuario.belongsTo(Rol, { foreignKey: "IdRol", targetId: "id", as: "rol" });
 
 // Relacion 1:N Usuario - Profesionales
 Usuario.hasMany(Profesional, {

@@ -10,13 +10,7 @@ Bakend hecho con NodeJS con el framework de express y el orm de sequelize consum
 
 Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo `.env` en la raiz del proyecto en la carpeta backend. O copiar el archivo `.env.example` y renombrarlo como `.env`
 
-`TZ`
-
-`API_PORT`
-
-`JWT_SECRET`
-
-`NODE_ENV`
+`DB_URI`
 
 `DB_USER`
 
@@ -30,13 +24,45 @@ Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno
 
 `DB_DIALECT`
 
+`SSL`
+
 `LOG_LEVEL`
+
+`NODE_ENV`
+
+`JWT_SECRET`
+
+`APP`
+
+`API_PORT`
 
 `API_HOST`
 
+`API_PROTOCOL`
+
 `HOST_FRONT`
 
-`APP`
+`HOST_FRONT_EMAIL`
+
+`HOST_MAIL`
+
+`PORT_MAIL`
+
+`NAME_MAIL`
+
+`USER_MAIL`
+
+`PASS_MAIL`
+
+`SECURE_CON_MAIL`
+
+`TZ`
+
+`PAGE_SIZE`
+
+`MAX_PASS_FAILURES`
+
+`SALT_PASSWORD`
 
 ### Pre-requisitos 📋
 
@@ -104,30 +130,57 @@ Así se encuentra organizado el proyecto en cuestión.
 📁 backend/
 ├───📁 app/
 │   ├───📁 config/
-│   │   └───📄 .gitkeep
+│   │   └───📄 database.config.js
 │   ├───📁 controllers/
-│   │   └───📄 .gitkeep
+│   │   ├───📄 auth.controller.js
+│   │   ├───📄 home.controller.js
+│   │   └───📄 usuario.controller.js
 │   ├───📁 helpers/
-│   │   └───📄 .gitkeep
+│   │   ├───📄 generatePasswordFake.helpers.js
+│   │   ├───📄 generateTokens.helpers.js
+│   │   └───📄 validate.helpers.js
 │   ├───📁 mails/
 │   |   ├───📁 pages/
-│   │   |   └───📄 .gitkeep
-│   │   └───📄.gitkeep
+│   │   │  ├───📄 account_data.html
+│   │   │  ├───📄 confirm_na.html
+│   │   │  ├───📄 confirm.html
+│   │   │  ├───📄 forgot.html
+│   │   │  ├───📄 new_password.html
+│   │   |  └───📄 password_ok.html
+│   │   └───📄 config.mails.js
 │   ├───📁 middlewares/
-│   │   └───📄 .gitkeep
+│   │   ├───📄 register.middleware.js
+│   │   └───📄 verifyUser.middleware.js
 │   ├───📁 models/
-│   │   └───📄 .gitkeep
+│   │   ├───📄 contratos.model.js
+│   │   ├───📄 profesional.model.js
+│   │   ├───📄 relaciones.model.js
+│   │   ├───📄 resenias.model.js
+│   │   ├───📄 rol.model.js
+│   │   ├───📄 servicios.model.js
+│   │   ├───📄 tarifa.model.js
+│   │   └───📄 usuario.model.js
 │   ├───📁 providers/
-│   │   └───📄 .gitkeep
+│   │   ├───📄 rol.provider.js
+│   │   ├───📄 shared.provider.js
+│   │   └───📄 usuario.provider.js
 │   ├───📁 routes/
-│   │   └───📄 index.routes.js
+│   │   ├───📄 auth.routes.js
+│   │   ├───📄 index.routes.js
+│   │   └───📄 usuario.routes.js
 │   ├───📁 services/
-│   │   └───📄 .gitkeep
+│   │   ├───📄 auth.services.js
+│   │   └───📄 usuario.services.js
 │   ├───📁 utils/
+│   │   ├───📄 accountData.js
+│   │   ├───📄 blacklist.email.js
+│   │   ├───📄 createSlug.js
+│   │   ├───📄 formatData.js
 │   │   ├───📄 validateEnv.js
 │   │   └───📄 winston.logger.js
-│   └───📁 validations/
-│       └───📄 .gitkeep
+│   ├───📁 validations/
+│   │    └───📄 auth.validations.js
+│   └───📄 app.js
 ├───📄 .env.example
 ├───📄 .gitignore
 ├───📄 package.json
