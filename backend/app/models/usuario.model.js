@@ -32,7 +32,7 @@ const Usuario = sequelize.define(
       allowNull: true,
       defaultValue: null,
     },
-    public_id: {
+    publicId: {
       type: DataTypes.STRING(150),
       allowNull: true,
       defaultValue: null,
@@ -42,12 +42,12 @@ const Usuario = sequelize.define(
       allowNull: true,
       defaultValue: null,
     },
-    caducidad_token: {
+    caducidadToken: {
       type: DataTypes.DATE,
       allowNull: true,
       defaultValue: null,
     },
-    email_verified_at: {
+    emailVerifiedAt: {
       type: DataTypes.DATE,
       allowNull: true,
       defaultValue: null,
@@ -55,7 +55,7 @@ const Usuario = sequelize.define(
     status: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: false,
     },
     ciudad: {
       type: DataTypes.STRING(50),
@@ -67,11 +67,31 @@ const Usuario = sequelize.define(
       allowNull: true,
       defaultValue: null,
     },
+    failedAttempts: {
+      type: DataTypes.INTEGER(),
+      allowNull: false,
+      defaultValue: 0,
+    },
   },
   {
     paranoid: false,
     timestamps: true,
   }
 );
+
+Usuario.prototype.toJSON = function () {
+  var values = Object.assign({}, this.get());
+
+  delete values.password;
+  delete values.failedAttempts;
+  delete values.token;
+  delete values.publicId;
+  delete values.createdAt;
+  delete values.status;
+  delete values.caducidadToken;
+  delete values.emailVerifiedAt;
+  delete values.updatedAt;
+  return values;
+};
 
 export default Usuario;
