@@ -1,4 +1,5 @@
-// src/AppRoutes.jsx
+//ARCHIVOS DE RUTAS PRINCIPALES DE LA APP
+
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
