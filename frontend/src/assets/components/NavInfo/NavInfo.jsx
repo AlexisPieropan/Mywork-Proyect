@@ -1,6 +1,6 @@
 //IMPORTACIONES
 import  { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 //CSS personalizado
 import './NavInfo.css';
@@ -18,6 +18,17 @@ const openMenu = () => {
   setMenuVisible(!menuVisible);
   console.log(menuVisible)
 };
+
+// MANEJADORES DE REDIRECCIONES
+const navigate = useNavigate();
+
+const handleLoginClick=()=> {
+    navigate("/login");
+}
+
+const handleRegisterClick=()=> {
+  navigate("/register");
+}
 
   return (
     <div >
@@ -60,7 +71,7 @@ const openMenu = () => {
                   <li className='text-white lg:mr-7 mb-8 lg:mb-0'>Acerca de</li>
                 </ul>
                   <div className='flex flex-col lg:flex-row text-center'>
-                    <button className="btnIniSesion mb-8">Iniciar Sesion</button>
+                    <button className="btnIniSesion mb-8" >Iniciar Sesion</button>
                     <button className="btnCrearUs">Crear Cuenta</button>
                   </div>
 
@@ -81,8 +92,8 @@ const openMenu = () => {
                   <li className="hover:bg-gray-700 py-2 px-2 rounded cursor-pointer text-white lg:mr-7 transition duration-500 ease-in-out">Acerca de</li>
                 </ul>
                   <div >
-                    <button className="btnIniSesion ">Iniciar Sesion</button>
-                    <button className="btnCrearUs">Crear Cuenta</button>      
+                    <button className="btnIniSesion" onClick={handleLoginClick}>Iniciar Sesion</button>
+                    <button className="btnCrearUs" onClick={handleRegisterClick}>Crear Cuenta</button>      
                   </div>
               </div>
               
