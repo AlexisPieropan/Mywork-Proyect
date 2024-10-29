@@ -9,6 +9,16 @@ import Registro from '../pages/Registro/Registro';
 import Login from '../pages/Login/Login';
 import  NotFound  from '../pages/NotFound/NotFound';
 
+/*
+PAGINAS FALTANTES
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/service/:id" element={<ServiceDetailPage />} />
+      <Route path="/profile" element={<UserProfilePage />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/notifications" element={<NotificationsPage />} />
+      <Route path="/search" element={<SearchResultsPage />} />
+*/
+
 const AppRoutes = () => {
   return (
     <Routes>

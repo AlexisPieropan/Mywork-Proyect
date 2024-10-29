@@ -71,8 +71,8 @@ const handleRegisterClick=()=> {
                   <li className='text-white lg:mr-7 mb-8 lg:mb-0'>Acerca de</li>
                 </ul>
                   <div className='flex flex-col lg:flex-row text-center'>
-                    <button className="btnIniSesion mb-8" >Iniciar Sesion</button>
-                    <button className="btnCrearUs">Crear Cuenta</button>
+                    <button className="btnIniSesion mb-8" onClick={handleLoginClick}>Iniciar Sesion</button>
+                    <button className="btnCrearUs" onClick={handleRegisterClick}>Crear Cuenta</button>
                   </div>
 
             </div>
